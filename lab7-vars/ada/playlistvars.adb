@@ -91,11 +91,11 @@ begin
     length1 := 0.0;
     for i in playlist1'Range loop
         item := playlist1(i);
-        case item.all.item_variant is
+        case item.item_variant is
         when PIECE =>
-            length1 := length1 + item.all.piece_length_secs; -- TASK: fix compiler error
+            length1 := length1 + Float(item.piece_length_secs); -- TASK: fix compiler error Q5
         when ADVERT =>
-            length1 := length1 + item.all.ad_length_secs; -- TASK: fix compiler error
+            length1 := length1 + Float(item.ad_length_secs); -- TASK: fix compiler  Q5
         end case;
     end loop;
 
