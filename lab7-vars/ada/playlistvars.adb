@@ -98,6 +98,7 @@ begin
             length1 := length1 + Float(item.ad_length_secs); -- TASK: fix compiler  Q5
         end case;
     end loop;
+-- line 95 to 98 is the answer to Q8.5c
 
     Put("length1 = ");
     Put(length1, 1, 1, 0); -- formatting a Float
