@@ -64,6 +64,11 @@ public class Overflow
         {
             int next_ns = ns * n;
             assert next_ns > 0 : "power: Integer overflow";
+            // optional Q3e for line 66
+            // assert ns <= Integer.MAX_VALUE / n : "power: Integer overflow";
+            // or
+            // assert (double)ns*n <= Integer.MAX_VALUE : "power: Integer overflow";
+
             resultList.add(next_ns);
             ns = next_ns;
         }
@@ -86,7 +91,7 @@ public class Overflow
         for ( int j = 1; j <= m; j++ )
         {
             ns = ns * n;
-            assert ns > 0 && n > ns : "Floating-point overflow";
+            assert ns != ns * 2 : "Floating-point overflow"; //Q3b
             resultList.add(ns);
         }
         return resultList;
@@ -112,7 +117,7 @@ public class Overflow
         for ( int j = 0; j <= m; j++ )
         {
             ns_inv = ns_inv / n; // update from 1/n^(i-1) to 1/n^i
-            assert ns_inv > 0 : "Floating point underflow";
+            assert ns_inv != 0 : "Floating point underflow"; // Q3b
             geom_sum = ns_inv + geom_sum;
             resultList.add(geom_sum);
         }
